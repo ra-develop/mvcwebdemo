@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Java Academy</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+        /* Additional styles specific to contact page */
+        .contact-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info, .contact-form {
+            flex: 1;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-item i {
+            margin-right: 0.5rem;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for aside and main -->
+    <div class="container">
+        <!-- Aside Section (Navigation Bar) -->
+        <aside>
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a class="active" href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <h1>Contact Java Academy</h1>
+            <p>Have questions about our courses? Reach out to us using the information below or send us a message.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Our Information</h2>
+                    
+                    <div class="info-item">
+                        <i>📍</i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>123 Academy Way<br>Tech City, TC 10001</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i>📞</i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i>✉️</i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>contact@javaacademy.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i>🕒</i>
+                        <div>
+                            <h3>Hours</h3>
+                            <p>Monday-Friday: 9am-5pm<br>Saturday: 10am-2pm<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form th:action="@{/contact}" method="post">
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div>
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        
+                        <div>
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> Java Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

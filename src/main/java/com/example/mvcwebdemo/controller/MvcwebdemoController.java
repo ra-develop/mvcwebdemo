@@ -17,4 +17,10 @@ public class MvcwebdemoController {
     public String registration() {
         return "registration";
     }
+
+    // Serve the contactus.html page
+    @GetMapping("/contactus")
+    public String contactus() {
+        return "contactus";
+    }
 }
